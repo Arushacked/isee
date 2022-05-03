@@ -29,6 +29,7 @@ import utils
 from resnet import resnet as caffe_resnet
 
 from speech2txt import get_Question
+from imagecap import take_Photo 
 # from txt2speech import txt2speech
 
 
@@ -190,8 +191,9 @@ def print_answers(answers):
     
     return
 
-# text = get_Question()
-demo('test_img.jpg','What color is the umbrella?')
+take_Photo()
+text = get_Question()
+demo('saved_img.jpg',text)
 # demo('test_img.jpg',text + '?')
 # demo('tennis.jpg','Which game is she playing?')
 # demo('dogs.jpg','What is in the image?')
