@@ -37,7 +37,7 @@ from playsound import playsound
 from num2words import num2words
 from subprocess import call
 
-# from picamera import PiCamera
+from picamera import PiCamera
 from time import sleep
 
 from textblob import TextBlob
@@ -74,43 +74,43 @@ def txt2speech(text):
     call([cmd_beg+cmd_out+text+cmd_end], shell=True)
     return
 
-def take_Photo():
-    key = cv2.waitKey(1)
-    webcam = cv2.VideoCapture(0)
-    while True:
-        try:
-            check, frame = webcam.read()
-            cv2.imshow("Capturing", frame) 
-            key = cv2.waitKey(1)
-            if key == ord('s'):
-                cv2.imwrite(filename='image.jpg', img=frame)
-                webcam.release()
-                #img_new = cv2.imshow("Captured Image", img_new)  
-                cv2.waitKey(1650)
-                cv2.destroyAllWindows()
-                break
-            elif key == ord('q'):
-                print("Turning off camera.")
-                webcam.release()
-                print("Camera off.")
-                print("Program ended.")
-                cv2.destroyAllWindows()
-                break
-        except(KeyboardInterrupt):
-                print("Turning off camera.")
-                webcam.release()
-                print("Camera off.")
-                print("Program ended.")
-                cv2.destroyAllWindows()
-                break
 # def take_Photo():
+#     key = cv2.waitKey(1)
+#     webcam = cv2.VideoCapture(0)
+#     while True:
+#         try:
+#             check, frame = webcam.read()
+#             cv2.imshow("Capturing", frame) 
+#             key = cv2.waitKey(1)
+#             if key == ord('s'):
+#                 cv2.imwrite(filename='image.jpg', img=frame)
+#                 webcam.release()
+#                 #img_new = cv2.imshow("Captured Image", img_new)  
+#                 cv2.waitKey(1650)
+#                 cv2.destroyAllWindows()
+#                 break
+#             elif key == ord('q'):
+#                 print("Turning off camera.")
+#                 webcam.release()
+#                 print("Camera off.")
+#                 print("Program ended.")
+#                 cv2.destroyAllWindows()
+#                 break
+#         except(KeyboardInterrupt):
+#                 print("Turning off camera.")
+#                 webcam.release()
+#                 print("Camera off.")
+#                 print("Program ended.")
+#                 cv2.destroyAllWindows()
+#                 break
+def take_Photo():
     
-#     camera = PiCamera()
-#     camera.rotation = 180
-#     camera.start_preview()
-#     sleep(5)
-#     camera.capture('image.jpg')
-#     camera.stop_preview()
+    camera = PiCamera()
+    camera.rotation = 180
+    camera.start_preview()
+    sleep(5)
+    camera.capture('image.jpg')
+    camera.stop_preview()
 
 
 def prepare_questions(questions):
